@@ -1,28 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Star,
-  GitFork,
-  MapPin,
-  Phone,
-} from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone, Facebook } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { Projects } from "@/components/projects";
 
 const skillCategories = [
   {
     category: "Languages",
-    skills: [
-      "cpp",
-      "python",
-      "javascript",
-    ],
+    skills: ["cpp", "python", "javascript"],
   },
   {
     category: "Frontend",
@@ -59,14 +49,19 @@ export function Portfolio() {
     <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Profile Section */}
-        <div className="text-center bg-gray-50 rounded-lg p-8 shadow-lg">
-          <div className="relative w-32 h-32 mx-auto mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center bg-gray-50 rounded-lg p-8 shadow-lg"
+        >
+          <div className="relative w-32 h-32 mx-auto mb-4 group">
             <Image
               src="https://avatars.githubusercontent.com/u/81033586?v=4"
               alt="Profile Picture"
               width={128}
               height={128}
-              className="rounded-full border-4 border-blue-500"
+              className="rounded-full border-4 border-blue-500 group-hover:scale-110 transition-transform duration-300"
             />
             <div className="absolute bottom-0 right-0 bg-green-500 w-6 h-6 rounded-full border-4 border-white"></div>
           </div>
@@ -118,8 +113,18 @@ export function Portfolio() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
+            <Link href={"https://facebook.com/smmiloy"}>
+              <Button
+                variant="outline"
+                size="icon"
+                className="bg-white hover:bg-gray-100"
+              >
+                <Facebook className="h-5 w-5 text-gray-800" />
+                <span className="sr-only">Facebook</span>
+              </Button>
+            </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* About Me Section */}
         <Card className="bg-white border shadow-lg">
@@ -128,7 +133,10 @@ export function Portfolio() {
           </CardHeader>
           <CardContent className="pt-6">
             <p className="text-gray-700 mb-4">
-              A curious learner and passionate problem solver looking for a challenging position as a Software Engineer in a dynamic company that values my analytical and technical skills and allows me to expand my knowledge.
+              A curious learner and passionate problem solver looking for a
+              challenging position as a Software Engineer in a dynamic company
+              that values my analytical and technical skills and allows me to
+              expand my knowledge.
             </p>
           </CardContent>
         </Card>
@@ -181,31 +189,80 @@ export function Portfolio() {
               </div>
               <p className="text-gray-600">2020 - Present</p>
             </div>
-            <p className="text-gray-600">CGPA: 3.22 out of 4.00 till 3rd year 2nd semester</p>
+            <p className="text-gray-600">
+              CGPA: 3.22 out of 4.00 till 3rd year 2nd semester
+            </p>
           </CardContent>
         </Card>
 
         {/* Competitive Programming Experience Section */}
         <Card className="bg-white border shadow-lg">
           <CardHeader className="border-b border-gray-200">
-            <CardTitle className="text-2xl text-blue-600">Competitive Programming Experience</CardTitle>
+            <CardTitle className="text-2xl text-blue-600">
+              Competitive Programming Experience
+            </CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
             <p className="text-gray-700 mb-4">Online Judge Max Rating:</p>
             <ul className="list-disc pl-5 text-gray-700">
-              <li>Codeforces (1606)</li>
-              <li>Codechef (1770)</li>
-              <li>Leetcode (1416)</li>
-              <li>Atcoder (1021)</li>
+              <li>
+                <Link
+                  href="https://codeforces.com/profile/outlander23"
+                  className="text-blue-600 hover:underline"
+                >
+                  Codeforces (1606)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.codechef.com/users/outlander23"
+                  className="text-blue-600 hover:underline"
+                >
+                  Codechef (1770)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://leetcode.com/outlander23"
+                  className="text-blue-600 hover:underline"
+                >
+                  Leetcode (1416)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://atcoder.jp/users/outlander23"
+                  className="text-blue-600 hover:underline"
+                >
+                  Atcoder (1021)
+                </Link>
+              </li>
             </ul>
-            <p className="text-gray-700 mt-4 mb-4">Onsite Programming Contest:</p>
+            <p className="text-gray-700 mt-4 mb-4">
+              Onsite Programming Contest:
+            </p>
             <ul className="list-disc pl-5 text-gray-700">
-              <li>Placed 3rd : Rangpur Divisional Collegiate Programming Contest 2024 (Team: BRUR_NotStrongEnough)</li>
-              <li>Placed 14th : NWU CSE FEST PROGRAMMING CONTEST 2023 (Team: BRUR_SAS)</li>
-              <li>Placed 31st : BUET Inter University Programming Contest 2023 (Team: BRUR_hugs4bugs)</li>
-              <li>Placed 58th : IUT 11th National ICT Fest 2024 (Team: BRUR_Kuhelika)</li>
+              <li>
+                Placed 3rd : Rangpur Divisional Collegiate Programming Contest
+                2024 (Team: BRUR_NotStrongEnough)
+              </li>
+              <li>
+                Placed 14th : NWU CSE FEST PROGRAMMING CONTEST 2023 (Team:
+                BRUR_SAS)
+              </li>
+              <li>
+                Placed 31st : BUET Inter University Programming Contest 2023
+                (Team: BRUR_hugs4bugs)
+              </li>
+              <li>
+                Placed 58th : IUT 11th National ICT Fest 2024 (Team:
+                BRUR_Kuhelika)
+              </li>
               <li>Placed 65th : NCPC Onsite 2023 (Team: BRUR_DayLight)</li>
-              <li>Placed 87th : CUET Inter University Programming Contest 2024 (Team: BRUR_Undone)</li>
+              <li>
+                Placed 87th : CUET Inter University Programming Contest 2024
+                (Team: BRUR_Undone)
+              </li>
             </ul>
           </CardContent>
         </Card>
@@ -213,7 +270,9 @@ export function Portfolio() {
         {/* Hackathon Experience Section */}
         <Card className="bg-white border shadow-lg">
           <CardHeader className="border-b border-gray-200">
-            <CardTitle className="text-2xl text-blue-600">Hackathon Experience</CardTitle>
+            <CardTitle className="text-2xl text-blue-600">
+              Hackathon Experience
+            </CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
             <ul className="list-disc pl-5 text-gray-700">
@@ -227,30 +286,47 @@ export function Portfolio() {
         {/* Achievement and Awards Section */}
         <Card className="bg-white border shadow-lg">
           <CardHeader className="border-b border-gray-200">
-            <CardTitle className="text-2xl text-blue-600">Achievement and Awards</CardTitle>
+            <CardTitle className="text-2xl text-blue-600">
+              Achievement and Awards
+            </CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
-            <ul className="list-disc pl-5 text-gray-700">
-              <li>1st Runner Up at Hackathon NWU CSE FEST (2023)</li>
-              <li>1st Runner Up at Application and Game Development (2023)</li>
-              <li>2nd Runner Up at RDCPC (2024)</li>
+            <ul className="list-disc pl-5 text-gray-700 space-y-2">
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                1st Runner Up at Hackathon NWU CSE FEST (2023)
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                1st Runner Up at Application and Game Development (2023)
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                2nd Runner Up at RDCPC (2024)
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                1st prize in the quiz competition at North Western University,
+                Khulna CSE FEST 2023!
+              </motion.li>
             </ul>
           </CardContent>
         </Card>
 
         {/* Projects Section */}
-        <Card className="bg-white border shadow-lg">
-          <CardHeader className="border-b border-gray-200">
-            <CardTitle className="text-2xl text-blue-600">Academic and Personal Projects</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <ul className="list-disc pl-5 text-gray-700">
-              <li>CPITOR: An AI-powered C++ code editor for competitive programming.</li>
-              <li>TALE: A 2D Platformer Game for web, android, linux and windows.</li>
-              <li>MFresh: An open-source Chrome extension to automatically refresh your active tab.</li>
-            </ul>
-          </CardContent>
-        </Card>
+        <Projects />
       </div>
     </div>
   );
