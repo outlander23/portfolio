@@ -17,7 +17,7 @@ export function Projects() {
     fetch("https://api.github.com/users/outlander23/repos")
       .then((response) => response.json())
       .then((data) => {
-        const projectData = data.map((repo: any) => ({
+        const projectData = data.map((repo: Project) => ({
           name: repo.name,
           description: repo.description,
           html_url: repo.html_url,
@@ -28,7 +28,9 @@ export function Projects() {
 
         // Sort projects by stars in descending order and slice to top 4
         const sortedProjects = projectData
-          .sort((a, b) => b.stargazers_count - a.stargazers_count)
+          .sort(
+            (a: Project, b: Project) => b.stargazers_count - a.stargazers_count
+          )
           .slice(0, 4);
 
         setProjects(sortedProjects);

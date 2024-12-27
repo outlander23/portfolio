@@ -14,9 +14,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Nawab Khairuzzaman Mohammad Kibria",
+  title: "Portfolio -S.M.MILOY",
   description:
-    "Full Stack Developer with expertise in web and mobile applications, blockchain technology, and AI. Passionate about building innovative solutions.",
+    "Full Stack Developer with expertise in web and mobile applications, and AI. Passionate about building innovative solutions.",
 };
 
 export default function RootLayout({
