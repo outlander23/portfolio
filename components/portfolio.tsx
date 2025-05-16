@@ -108,7 +108,6 @@ export default function Portfolio() {
   const [projects, setProjects] = useState<Project[]>([]);
   // const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
   // const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -168,24 +167,13 @@ export default function Portfolio() {
     return description;
   };
 
-  const scrollToSection = (sectionId: string) => {
-    setMobileMenuOpen(false);
-    const section = document.getElementById(sectionId);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 80,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const navItems = [
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "profiles", label: "CP Profiles" },
-    { id: "achievements", label: "Achievements" },
-    { id: "projects", label: "Projects" },
-  ];
+  // const navItems = [
+  //   { id: "about", label: "About" },
+  //   { id: "skills", label: "Skills" },
+  //   { id: "profiles", label: "CP Profiles" },
+  //   { id: "achievements", label: "Achievements" },
+  //   { id: "projects", label: "Projects" },
+  // ];
 
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/20 selection:text-purple-300">
