@@ -525,7 +525,7 @@ export default function Portfolio() {
               Skills & Technologies
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              A comprehensive set of skills I've developed through years of
+              A comprehensive set of skills I have developed through years of
               practice and projects
             </p>
           </motion.div>
@@ -855,15 +855,24 @@ export default function Portfolio() {
               },
               {
                 position: "89th",
-                event:
-                  "Inter University Programming Contest | United Group Presents BUET CSE Fest 2024",
+                event: "BUET Inter University Programming Contest 2024",
                 team: "BRUR_NotStrongEnough",
               },
               {
                 position: "92nd",
-                event:
-                  "Kite Games Presents Inter University Programming Contest - SUST CSE Carnival 2024",
+                event: "SUST Inter University Programming Contest 2024",
                 team: "BRUR_Undone",
+              },
+
+              {
+                position: "100th",
+                event: "UIU Inter-University Programming Contest 2025",
+                team: "BRUR_Outlanders",
+              },
+              {
+                position: "181st",
+                event: "ICPC Asia Dhaka Regional Contest 2024",
+                team: "BRUR_NotStrongEnough",
               },
             ].map((achievement, index) => (
               <motion.div
@@ -1126,13 +1135,13 @@ export default function Portfolio() {
             className="max-w-3xl mx-auto space-y-8"
           >
             <Badge className="px-3 py-1 text-sm rounded-full border-blue-500/30 bg-blue-500/10 text-blue-300">
-              Let's Connect
+              Let us Connect
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
               Ready to work together?
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              I'm always open to discussing new projects, creative ideas or
+              I am always open to discussing new projects, creative ideas or
               opportunities to be part of your vision.
             </p>
             {/* <div className="flex flex-wrap gap-4 justify-center">
