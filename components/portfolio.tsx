@@ -126,7 +126,14 @@ export default function Portfolio() {
                   variant="outline"
                   className="px-3 py-1 text-sm rounded-full border-primary/30 bg-primary/10 text-primary"
                 >
-                  Expert (1606+) @ Codeforces
+                  Expert @ Codeforces
+                </Badge>{" "}
+                &&{" "}
+                <Badge
+                  variant="outline"
+                  className="px-3 py-1 text-sm rounded-full border-primary/30 bg-primary/10 text-primary"
+                >
+                  ⭐⭐⭐⭐ @ Codechef
                 </Badge>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -137,8 +144,7 @@ export default function Portfolio() {
               </h2>
               <p className="text-muted-foreground max-w-md">
                 Pursuing B.Sc in Computer Science and Engineering at Begum
-                Rokeya University, Rangpur. Currently engaged in competitive
-                programming and learning development.
+                Rokeya University, Rangpur.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button asChild>
@@ -363,7 +369,7 @@ export default function Portfolio() {
                     name="Data Structures & Algorithms"
                     percentage={90}
                   />
-                  <SkillBar name="DevOps & Cloud" percentage={75} />
+                  {/* <SkillBar name="DevOps & Cloud" percentage={75} /> */}
                 </div>
               </CardContent>
             </Card>
@@ -372,7 +378,7 @@ export default function Portfolio() {
       </section>
 
       {/* Stats Section */}
-      <section id="stats" className="py-16">
+      {/* <section id="stats" className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 flex items-center">
             <Award className="mr-2 h-6 w-6 text-primary" />
@@ -406,7 +412,7 @@ export default function Portfolio() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CP Profiles Section */}
       <section id="profiles" className="py-16 bg-muted/30">
