@@ -106,7 +106,7 @@ const skillCategories: SkillCategory[] = [
 
 export default function Portfolio() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [activeSection, setActiveSection] = useState("hero");
+  // const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
   // const [scrollProgress, setScrollProgress] = useState(0);
