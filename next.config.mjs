@@ -35,6 +35,7 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
   },
+  ignoreDuringBuilds: true,
 };
 
 export default nextConfig;

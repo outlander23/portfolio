@@ -4,8 +4,7 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Link from "next/link";
-import { Github, Linkedin, Facebook, Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Facebook } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
