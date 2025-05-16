@@ -104,7 +104,8 @@ const skillCategories: SkillCategory[] = [
 
 export default function Portfolio() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuOpen = false;
 
   useEffect(() => {
     fetch("https://api.github.com/users/outlander23/repos")
