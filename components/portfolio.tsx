@@ -212,11 +212,7 @@ export default function Portfolio() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-lg font-medium py-3 border-b border-white/10 text-left ${
-                    activeSection === item.id
-                      ? "text-purple-400"
-                      : "text-gray-300"
-                  }`}
+                  className={`text-lg font-medium py-3 border-b border-white/10 text-left ${"text-purple-400"}`}
                 >
                   {item.label}
                 </button>
