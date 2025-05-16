@@ -100,7 +100,7 @@ export default function Portfolio() {
   useEffect(() => {
     fetch("https://api.github.com/users/outlander23/repos")
       .then((response) => response.json())
-      .then((data: any[]) => {
+      .then((data: Project[]) => {
         const projectData: Project[] = data.map((repo) => ({
           name: repo.name,
           description: repo.description,
@@ -435,7 +435,7 @@ export default function Portfolio() {
                 </Card>
 
                 <Card className="overflow-hidden h-[200px] flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://codeforces-readme-stats.vercel.app/api/card?username=outlander"
                     alt="Codeforces Stats"
                     className="object-contain w-full h-full"
@@ -468,7 +468,7 @@ export default function Portfolio() {
                 </Card>
 
                 <Card className="overflow-hidden h-[200px] flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://codechef-readme-stats.onrender.com/miloy23"
                     alt="CodeChef Stats"
                     className="object-contain w-full h-full"
@@ -501,7 +501,7 @@ export default function Portfolio() {
                 </Card>
 
                 <Card className="overflow-hidden h-[200px] flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://leetcard.jacoblin.cool/miloy23"
                     alt="LeetCode Stats"
                     className="object-contain w-full h-full"
@@ -534,7 +534,7 @@ export default function Portfolio() {
                 </Card>
 
                 <Card className="overflow-hidden h-[200px] flex items-center justify-center">
-                  <img
+                  <Image
                     src="https://atcoder-readme-stats.vercel.app/stats/miloy"
                     alt="AtCoder Stats"
                     className="object-contain w-full h-full"
