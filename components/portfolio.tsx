@@ -33,16 +33,41 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+// Define interfaces
 interface Project {
   name: string;
-  description: string;
+  description: string | null;
   html_url: string;
   stargazers_count: number;
-  language: string;
+  language: string | null;
   forks_count: number;
 }
 
-const skillCategories = [
+interface SkillCategory {
+  category: string;
+  skills: string[];
+}
+
+interface AchievementCardProps {
+  position: string;
+  event: string;
+  team: string;
+  highlight?: boolean;
+}
+
+interface HackathonCardProps {
+  position: string;
+  event: string;
+  year: string;
+  highlight?: boolean;
+}
+
+interface SkillBarProps {
+  name: string;
+  percentage: number;
+}
+
+const skillCategories: SkillCategory[] = [
   {
     category: "Languages",
     skills: ["js", "ts", "solidity", "cpp", "java", "python"],
@@ -75,8 +100,8 @@ export default function Portfolio() {
   useEffect(() => {
     fetch("https://api.github.com/users/outlander23/repos")
       .then((response) => response.json())
-      .then((data) => {
-        const projectData = data.map((repo: Project) => ({
+      .then((data: any[]) => {
+        const projectData: Project[] = data.map((repo) => ({
           name: repo.name,
           description: repo.description,
           html_url: repo.html_url,
@@ -85,23 +110,18 @@ export default function Portfolio() {
           forks_count: repo.forks_count,
         }));
 
-        // Sort projects by stars in descending order and slice to top 4
         const sortedProjects = projectData
-          .sort(
-            (a: Project, b: Project) => b.stargazers_count - a.stargazers_count
-          )
+          .sort((a, b) => b.stargazers_count - a.stargazers_count)
           .slice(0, 4);
 
         setProjects(sortedProjects);
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.error("Error fetching GitHub repos:", error);
-        // Set some fallback projects in case the API fails
       });
   }, []);
 
-  // Function to truncate the description to 10 words
-  const truncateDescription = (description: string) => {
+  const truncateDescription = (description: string | null): string => {
     if (!description) return "No description available.";
     const words = description.split(" ");
     if (words.length > 10) {
@@ -368,50 +388,12 @@ export default function Portfolio() {
                     name="Data Structures & Algorithms"
                     percentage={90}
                   />
-                  {/* <SkillBar name="DevOps & Cloud" percentage={75} /> */}
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
-
-      {/* Stats Section */}
-      {/* <section id="stats" className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 flex items-center">
-            <Award className="mr-2 h-6 w-6 text-primary" />
-            Problem Solving Stats
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            <StatCard
-              title="Codeforces"
-              value="2121"
-              icon={<Code2 className="h-5 w-5" />}
-            />
-            <StatCard
-              title="CSES"
-              value="117"
-              icon={<Code2 className="h-5 w-5" />}
-            />
-            <StatCard
-              title="AtCoder"
-              value="155"
-              icon={<Code2 className="h-5 w-5" />}
-            />
-            <StatCard
-              title="Codechef"
-              value="88"
-              icon={<Code2 className="h-5 w-5" />}
-            />
-            <StatCard
-              title="Others"
-              value="300+"
-              icon={<Code2 className="h-5 w-5" />}
-            />
-          </div>
-        </div>
-      </section> */}
 
       {/* CP Profiles Section */}
       <section id="profiles" className="py-16 bg-muted/30">
@@ -429,7 +411,6 @@ export default function Portfolio() {
               <TabsTrigger value="atcoder">AtCoder</TabsTrigger>
             </TabsList>
 
-            {/* Codeforces */}
             <TabsContent value="codeforces">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card>
@@ -455,7 +436,7 @@ export default function Portfolio() {
 
                 <Card className="overflow-hidden h-[200px] flex items-center justify-center">
                   <img
-                    src="https://codeforces-readme-stats.vercel.app/api/card?username=outlander&force_username=true"
+                    src="https://codeforces-readme-stats.vercel.app/api/card?username(panel&force_username=true"
                     alt="Codeforces Stats"
                     className="object-contain w-full h-full"
                   />
@@ -463,7 +444,6 @@ export default function Portfolio() {
               </div>
             </TabsContent>
 
-            {/* CodeChef */}
             <TabsContent value="codechef">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card>
@@ -497,7 +477,6 @@ export default function Portfolio() {
               </div>
             </TabsContent>
 
-            {/* LeetCode */}
             <TabsContent value="leetcode">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card>
@@ -531,7 +510,6 @@ export default function Portfolio() {
               </div>
             </TabsContent>
 
-            {/* AtCoder */}
             <TabsContent value="atcoder">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card>
@@ -569,13 +547,11 @@ export default function Portfolio() {
       </section>
 
       {/* Achievements Section */}
-      {/* Achievements Section */}
-      {/* Achievements Section */}
       <section id="achievements" className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 flex items-center">
             <Trophy className="mr-2 h-6 w-6 text-primary" />
-            Competitive Programming Achievements
+            Team Onsite Conteset Achievements
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AchievementCard
@@ -610,7 +586,7 @@ export default function Portfolio() {
               position="79th"
               event="DUET Inter University Programming Contest 2025"
               team="BRURute_Force"
-            />{" "}
+            />
             <AchievementCard
               position="87th"
               event="CUET Inter University Programming Contest 2024"
@@ -635,6 +611,35 @@ export default function Portfolio() {
               position="181st"
               event="ICPC Asia Dhaka Regional Contest 2024 Onsite Round Hosted By DIU"
               team="BRUR_NotStrongEnough"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="hackathons" className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 flex items-center">
+            <Briefcase className="mr-2 h-6 w-6 text-primary" />
+            Personal Onsite Conteset Achievements
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <AchievementCard
+              position="Champion"
+              event="Quiz Competition NWU CSE FEST"
+              team=""
+              highlight={true}
+            />
+            <AchievementCard
+              position="Champion"
+              event="Liberty Code Jam 2025"
+              team=""
+              highlight={true}
+            />
+            <AchievementCard
+              position="Champion"
+              event="ভাষা শহীদ প্রোগ্রামিং কনটেস্ট ২০২৫"
+              team=""
+              highlight={true}
             />
           </div>
         </div>
@@ -697,19 +702,14 @@ export default function Portfolio() {
                       {truncateDescription(project.description)}
                     </p>
                     <div className="flex items-center text-xs text-muted-foreground space-x-4 mt-auto">
-                      {/* Language Tag */}
                       <span className="flex items-center">
                         <span className="w-3 h-3 rounded-full bg-yellow-500 mr-1"></span>
                         {project.language || "N/A"}
                       </span>
-
-                      {/* Stars */}
                       <span className="flex items-center">
                         <Star className="h-3 w-3 mr-1" />
                         {project.stargazers_count}
                       </span>
-
-                      {/* Forks */}
                       <span className="flex items-center">
                         <GitFork className="h-3 w-3 mr-1" />
                         {project.forks_count}
@@ -732,32 +732,6 @@ export default function Portfolio() {
                 © {new Date().getFullYear()} Outlander. All rights reserved.
               </p>
             </div>
-            {/* <div className="flex space-x-4">
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Mail className="h-5 w-5" />
-              </Link>
-            </div> */}
           </div>
         </div>
       </footer>
@@ -765,23 +739,12 @@ export default function Portfolio() {
   );
 }
 
-// function StatCard({ title, value, icon }) {
-//   return (
-//     <Card className="bg-card/50 backdrop-blur-sm border border-border/50">
-//       <CardContent className="p-6">
-//         <div className="flex items-center justify-between mb-2">
-//           <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
-//           <div className="bg-primary/10 p-1.5 rounded-full text-primary">
-//             {icon}
-//           </div>
-//         </div>
-//         <p className="text-2xl font-bold">{value}</p>
-//       </CardContent>
-//     </Card>
-//   );
-// }
-
-function AchievementCard({ position, event, team, highlight = false }) {
+function AchievementCard({
+  position,
+  event,
+  team,
+  highlight = false,
+}: AchievementCardProps) {
   return (
     <Card
       className={`overflow-hidden transition-all duration-300 hover:shadow-md ${
@@ -818,7 +781,12 @@ function AchievementCard({ position, event, team, highlight = false }) {
   );
 }
 
-function HackathonCard({ position, event, year, highlight = false }) {
+function HackathonCard({
+  position,
+  event,
+  year,
+  highlight = false,
+}: HackathonCardProps) {
   return (
     <Card
       className={`overflow-hidden transition-all duration-300 hover:shadow-md ${
@@ -855,7 +823,7 @@ function HackathonCard({ position, event, year, highlight = false }) {
   );
 }
 
-function SkillBar({ name, percentage }) {
+function SkillBar({ name, percentage }: SkillBarProps) {
   return (
     <div className="space-y-2">
       <div className="flex justify-between">
