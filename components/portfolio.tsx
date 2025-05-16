@@ -765,21 +765,21 @@ export default function Portfolio() {
   );
 }
 
-function StatCard({ title, value, icon }) {
-  return (
-    <Card className="bg-card/50 backdrop-blur-sm border border-border/50">
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
-          <div className="bg-primary/10 p-1.5 rounded-full text-primary">
-            {icon}
-          </div>
-        </div>
-        <p className="text-2xl font-bold">{value}</p>
-      </CardContent>
-    </Card>
-  );
-}
+// function StatCard({ title, value, icon }) {
+//   return (
+//     <Card className="bg-card/50 backdrop-blur-sm border border-border/50">
+//       <CardContent className="p-6">
+//         <div className="flex items-center justify-between mb-2">
+//           <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
+//           <div className="bg-primary/10 p-1.5 rounded-full text-primary">
+//             {icon}
+//           </div>
+//         </div>
+//         <p className="text-2xl font-bold">{value}</p>
+//       </CardContent>
+//     </Card>
+//   );
+// }
 
 function AchievementCard({ position, event, team, highlight = false }) {
   return (
