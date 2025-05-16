@@ -194,73 +194,12 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/20 selection:text-purple-300">
       {/* Progress bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-black">
+      {/* <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-black">
         <div
           className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
           style={{ width: `${scrollProgress}%` }}
         ></div>
-      </div>
-
-      {/* Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-black/80 backdrop-blur-md border-b border-white/5">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-2">
-              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                Outlander
-              </span>
-              <Badge
-                variant="outline"
-                className="bg-purple-500/10 text-purple-300 border-purple-500/30"
-              >
-                Developer
-              </Badge>
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-colors hover:text-purple-400 relative ${
-                    activeSection === item.id
-                      ? "text-purple-400"
-                      : "text-gray-400"
-                  }`}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <motion.div
-                      layoutId="activeSection"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.2 }}
-                    />
-                  )}
-                </button>
-              ))}
-            </nav>
-            <Button
-              size="sm"
-              className="hidden md:flex bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0"
-            >
-              Contact Me
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
-        </div>
-      </header>
+      </div> */}
 
       {/* Mobile menu */}
       <AnimatePresence>
@@ -404,15 +343,15 @@ export default function Portfolio() {
             </div>
           </motion.div>
 
-          <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-gray-400"
+          {/* <motion.div
+            className="absolute bottom-8 mt-10 left-1/2 transform -translate-x-1/4 flex flex-col items-center text-gray-400"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
           >
             <span className="text-sm mb-2">Scroll to explore</span>
             <ArrowDown className="h-5 w-5 animate-bounce" />
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -1196,7 +1135,7 @@ export default function Portfolio() {
               I'm always open to discussing new projects, creative ideas or
               opportunities to be part of your vision.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            {/* <div className="flex flex-wrap gap-4 justify-center">
               <Button
                 size="lg"
                 className="group bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0"
@@ -1211,7 +1150,7 @@ export default function Portfolio() {
               >
                 View Resume
               </Button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
