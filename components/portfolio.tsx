@@ -109,7 +109,7 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
-  const [scrollProgress, setScrollProgress] = useState(0);
+  // const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     fetch("https://api.github.com/users/outlander23/repos")
@@ -135,29 +135,29 @@ export default function Portfolio() {
       });
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollPosition / windowHeight) * 100;
-      setScrollProgress(progress);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollPosition = window.scrollY;
+  //     const windowHeight =
+  //       document.documentElement.scrollHeight - window.innerHeight;
+  //     const progress = (scrollPosition / windowHeight) * 100;
+  //     setScrollProgress(progress);
 
-      // Find the current active section
-      const scrollPos = window.scrollY + 200;
-      let currentSection = "hero";
-      Object.entries(sectionsRef.current).forEach(([section, ref]) => {
-        if (ref && scrollPos >= ref.offsetTop) {
-          currentSection = section;
-        }
-      });
+  //     // Find the current active section
+  //     const scrollPos = window.scrollY + 200;
+  //     let currentSection = "hero";
+  //     Object.entries(sectionsRef.current).forEach(([section, ref]) => {
+  //       if (ref && scrollPos >= ref.offsetTop) {
+  //         currentSection = section;
+  //       }
+  //     });
 
-      setActiveSection(currentSection);
-    };
+  //     setActiveSection(currentSection);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   const truncateDescription = (description: string | null): string => {
     if (!description) return "No description available.";
@@ -598,7 +598,6 @@ export default function Portfolio() {
             <Card className="border-white/5 bg-white/5 backdrop-blur-sm hover:border-purple-500/20 transition-all duration-300">
               <CardHeader className="border-b border-white/5">
                 <CardTitle className="text-lg flex items-center text-white">
-                  <Sparkles className="mr-2 h-5 w-5 text-blue-400" />
                   Proficiency Overview
                 </CardTitle>
                 <CardDescription className="text-gray-400">
