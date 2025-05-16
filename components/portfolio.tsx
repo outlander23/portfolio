@@ -4,7 +4,6 @@ import type React from "react";
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Github,
   Linkedin,
@@ -39,6 +38,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 // Define interfaces
 interface Project {
@@ -831,8 +831,8 @@ export default function Portfolio() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="p-0 h-[250px] flex items-center justify-center">
-                        <img
-                          src={platform.statsUrl || "/placeholder.svg"}
+                        <Image
+                          src={platform.statsUrl}
                           alt={`${platform.value} Stats`}
                           width={500}
                           height={250}
