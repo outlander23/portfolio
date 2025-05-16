@@ -208,15 +208,6 @@ export default function Portfolio() {
             transition={{ duration: 0.2 }}
           >
             <div className="flex flex-col space-y-4 p-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-lg font-medium py-3 border-b border-white/10 text-left ${"text-purple-400"}`}
-                >
-                  {item.label}
-                </button>
-              ))}
               <Button className="mt-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0">
                 Contact Me
               </Button>
@@ -229,7 +220,6 @@ export default function Portfolio() {
       <section
         id="hero"
         className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
-        ref={(el) => (sectionsRef.current.hero = el)}
       >
         {/* Gradient background */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-black to-black"></div>
@@ -348,11 +338,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section
-        id="about"
-        className="py-20 md:py-32"
-        ref={(el) => (sectionsRef.current.about = el)}
-      >
+      <section id="about" className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -496,11 +482,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section
-        id="skills"
-        className="py-20 md:py-32 relative"
-        ref={(el) => (sectionsRef.current.skills = el)}
-      >
+      <section id="skills" className="py-20 md:py-32 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/10 via-black to-black"></div>
         <div className="container relative mx-auto px-4 z-10">
           <motion.div
@@ -629,11 +611,7 @@ export default function Portfolio() {
       </section>
 
       {/* CP Profiles Section */}
-      <section
-        id="profiles"
-        className="py-20 md:py-32"
-        ref={(el) => (sectionsRef.current.profiles = el)}
-      >
+      <section id="profiles" className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -779,11 +757,7 @@ export default function Portfolio() {
       </section>
 
       {/* Achievements Section */}
-      <section
-        id="achievements"
-        className="py-20 md:py-32 relative"
-        ref={(el) => (sectionsRef.current.achievements = el)}
-      >
+      <section id="achievements" className="py-20 md:py-32 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-900/10 via-black to-black"></div>
         <div className="container relative mx-auto px-4 z-10">
           <motion.div
@@ -1008,11 +982,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section
-        id="projects"
-        className="py-20 md:py-32"
-        ref={(el) => (sectionsRef.current.projects = el)}
-      >
+      <section id="projects" className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
