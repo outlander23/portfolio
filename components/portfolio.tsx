@@ -1,8 +1,7 @@
 "use client";
 
 import type React from "react";
-
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Github,
@@ -36,7 +35,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-// Define interfaces
 interface Project {
   name: string;
   description: string | null;
@@ -106,9 +104,7 @@ const skillCategories: SkillCategory[] = [
 
 export default function Portfolio() {
   const [projects, setProjects] = useState<Project[]>([]);
-  // const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     fetch("https://api.github.com/users/outlander23/repos")
@@ -134,30 +130,6 @@ export default function Portfolio() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-  //     const windowHeight =
-  //       document.documentElement.scrollHeight - window.innerHeight;
-  //     const progress = (scrollPosition / windowHeight) * 100;
-  //     setScrollProgress(progress);
-
-  //     // Find the current active section
-  //     const scrollPos = window.scrollY + 200;
-  //     let currentSection = "hero";
-  //     Object.entries(sectionsRef.current).forEach(([section, ref]) => {
-  //       if (ref && scrollPos >= ref.offsetTop) {
-  //         currentSection = section;
-  //       }
-  //     });
-
-  //     setActiveSection(currentSection);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   const truncateDescription = (description: string | null): string => {
     if (!description) return "No description available.";
     const words = description.split(" ");
@@ -167,25 +139,8 @@ export default function Portfolio() {
     return description;
   };
 
-  // const navItems = [
-  //   { id: "about", label: "About" },
-  //   { id: "skills", label: "Skills" },
-  //   { id: "profiles", label: "CP Profiles" },
-  //   { id: "achievements", label: "Achievements" },
-  //   { id: "projects", label: "Projects" },
-  // ];
-
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/20 selection:text-purple-300">
-      {/* Progress bar */}
-      {/* <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-black">
-        <div
-          className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
-          style={{ width: `${scrollProgress}%` }}
-        ></div>
-      </div> */}
-
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -204,18 +159,12 @@ export default function Portfolio() {
         )}
       </AnimatePresence>
 
-      {/* Hero Section */}
       <section
         id="hero"
         className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
       >
-        {/* Gradient background */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-black to-black"></div>
-
-        {/* Grid overlay */}
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:32px_32px] opacity-10"></div>
-
-        {/* Animated background elements */}
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl opacity-30 animate-pulse"></div>
         <div
           className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl opacity-20 animate-pulse"
@@ -312,20 +261,9 @@ export default function Portfolio() {
               </Button>
             </div>
           </motion.div>
-
-          {/* <motion.div
-            className="absolute bottom-8 mt-10 left-1/2 transform -translate-x-1/4 flex flex-col items-center text-gray-400"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-          >
-            <span className="text-sm mb-2">Scroll to explore</span>
-            <ArrowDown className="h-5 w-5 animate-bounce" />
-          </motion.div> */}
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <motion.div
@@ -469,7 +407,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Skills Section */}
       <section id="skills" className="py-20 md:py-32 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/10 via-black to-black"></div>
         <div className="container relative mx-auto px-4 z-10">
@@ -598,7 +535,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* CP Profiles Section */}
       <section id="profiles" className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <motion.div
@@ -744,7 +680,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Achievements Section */}
       <section id="achievements" className="py-20 md:py-32 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-900/10 via-black to-black"></div>
         <div className="container relative mx-auto px-4 z-10">
@@ -816,7 +751,6 @@ export default function Portfolio() {
                 event: "SUST Inter University Programming Contest 2024",
                 team: "BRUR_Undone",
               },
-
               {
                 position: "100th",
                 event: "UIU Inter-University Programming Contest 2025",
@@ -908,7 +842,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Hackathon Experience Section */}
       <section id="hackathons" className="py-20 md:py-32 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/10 via-black to-black"></div>
         <div className="container relative mx-auto px-4 z-10">
@@ -969,7 +902,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projects" className="py-20 md:py-32">
         <div className="container mx-auto px-4">
           <motion.div
@@ -1070,7 +1002,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20 opacity-30"></div>
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:32px_32px] opacity-10"></div>
@@ -1093,27 +1024,10 @@ export default function Portfolio() {
               I am always open to discussing new projects, creative ideas or
               opportunities to be part of your vision.
             </p>
-            {/* <div className="flex flex-wrap gap-4 justify-center">
-              <Button
-                size="lg"
-                className="group bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0"
-              >
-                Contact Me
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white/20 text-white hover:bg-white/5"
-              >
-                View Resume
-              </Button>
-            </div> */}
           </motion.div>
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-12 border-t border-white/5 bg-black">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
