@@ -436,7 +436,7 @@ export default function Portfolio() {
 
                 <Card className="overflow-hidden h-[200px] flex items-center justify-center">
                   <img
-                    src="https://codeforces-readme-stats.vercel.app/api/card?username(panel&force_username=true"
+                    src="https://codeforces-readme-stats.vercel.app/api/card?username=outlander"
                     alt="Codeforces Stats"
                     className="object-contain w-full h-full"
                   />
