@@ -717,7 +717,7 @@ export default function Portfolio() {
                 highlight: true,
               },
               {
-                position: "31st",
+                position: "25th",
                 event: "BUET Inter University Programming Contest 2023",
                 team: "BRUR_hugs4bugs",
                 highlight: true,
