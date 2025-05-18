@@ -1160,19 +1160,19 @@ function HackathonCard({
   );
 }
 
-function SkillBar({ name, percentage }: SkillBarProps) {
-  return (
-    <div className="space-y-2">
-      <div className="flex justify-between">
-        <span className="text-sm font-medium text-white">{name}</span>
-        <span className="text-sm text-gray-400">{percentage}%</span>
-      </div>
-      <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-          style={{ width: `${percentage}%` }}
-        />
-      </div>
-    </div>
-  );
-}
+// function SkillBar({ name, percentage }: SkillBarProps) {
+//   return (
+//     <div className="space-y-2">
+//       <div className="flex justify-between">
+//         <span className="text-sm font-medium text-white">{name}</span>
+//         <span className="text-sm text-gray-400">{percentage}%</span>
+//       </div>
+//       <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+//         <div
+//           className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+//           style={{ width: `${percentage}%` }}
+//         />
+//       </div>
+//     </div>
+//   );
+// }
