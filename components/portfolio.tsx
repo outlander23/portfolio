@@ -64,10 +64,10 @@ interface HackathonCardProps {
   highlight?: boolean;
 }
 
-interface SkillBarProps {
-  name: string;
-  percentage: number;
-}
+// interface SkillBarProps {
+//   name: string;
+//   percentage: number;
+// }
 
 const skillCategories: SkillCategory[] = [
   {
